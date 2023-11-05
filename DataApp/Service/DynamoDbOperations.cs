@@ -1,4 +1,5 @@
-﻿using Amazon.DynamoDBv2.Model;
+﻿using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.Model;
 using DataApp.Clients;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace DataApp.Service
 {
     public class DynamoDbOperations
     {
-        private readonly AwsClients _awsClients;
+        private readonly IAmazonDynamoDB _dynamoDbClient;
 
-        public DynamoDbOperations(AwsClients awsClients)
+        public DynamoDbOperations(IAmazonDynamoDB dynamoDbClient)
         {
-            _awsClients = awsClients;
+            _dynamoDbClient = dynamoDbClient;
         }
 
         public async Task AddItemAsync(string tableName, Dictionary<string, AttributeValue> item)
@@ -24,28 +25,36 @@ namespace DataApp.Service
                 TableName = tableName,
                 Item = item
             };
-            await _awsClients.DynamoDBClient.PutItemAsync(request);
+            await _dynamoDbClient.PutItemAsync(request);
         }
-        public async Task<Dictionary<string, AttributeValue>> GetItemAsync(string tableName, Dictionary<string, AttributeValue> key)
+        public async Task<Dictionary<string, AttributeValue>> GetItemAsync(string tableName, string itemId)
         {
+            var key = new Dictionary<string, AttributeValue>
+            {
+                { "Id", new AttributeValue { S = itemId } }
+            };
             var request = new GetItemRequest
             {
                 TableName = tableName,
                 Key = key
             };
 
-            var response = await _awsClients.DynamoDBClient.GetItemAsync(request);
+            var response = await _dynamoDbClient.GetItemAsync(request);
             return response.Item;
         }
-        public async Task DeleteItemAsync(string tableName, Dictionary<string, AttributeValue> key)
+        public async Task DeleteItemAsync(string tableName, string itemId)
         {
+            var key = new Dictionary<string, AttributeValue>
+            {
+                { "Id", new AttributeValue { S = itemId } }
+            };
             var request = new DeleteItemRequest
             {
                 TableName = tableName,
                 Key = key
             };
 
-            await _awsClients.DynamoDBClient.DeleteItemAsync(request);
+            await _dynamoDbClient.DeleteItemAsync(request);
         }
     }
 }

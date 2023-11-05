@@ -16,13 +16,24 @@ namespace DataApp.Clients
         public AmazonDynamoDBClient DynamoDBClient { get; }
         public AmazonS3Client S3Client { get; }
 
-        public AwsClients()
+        public AwsClients(AwsConfig awsConfig)
         {
-            var credentials = new BasicAWSCredentials(AwsConfig.AccessKey, AwsConfig.SecretKey);
-            var region = RegionEndpoint.GetBySystemName(AwsConfig.Region);
+            var credentials = new BasicAWSCredentials(awsConfig.AccessKeyId, awsConfig.SecretAccessKey);
+            var region = RegionEndpoint.GetBySystemName(awsConfig.Region);
+            var s3Config = new AmazonS3Config
+            {
+                ServiceURL = awsConfig.ServiceURL,
+                ForcePathStyle = true 
+            };
+            var dynamoDbConfig = new AmazonDynamoDBConfig
+            {
+                ServiceURL = awsConfig.ServiceURL,
 
-            DynamoDBClient = new AmazonDynamoDBClient(credentials, region);
-            S3Client = new AmazonS3Client(credentials, region);
+            };
+
+
+            DynamoDBClient = new AmazonDynamoDBClient(credentials, dynamoDbConfig);
+            S3Client = new AmazonS3Client(credentials, s3Config);
         }
     }
 }

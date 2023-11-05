@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataApp.Config
 {
-    internal class AwsConfig
+    public class AwsConfig
     {
-        public static string AccessKey { get; }
-        public static string SecretKey { get;}
-        public static string Region { get;}
+        public  string AccessKeyId { get; set; }
+        public  string SecretAccessKey { get; set; }
+        public  string Region { get; set; }
+        public  string ServiceURL { get; set; }
     }
 }

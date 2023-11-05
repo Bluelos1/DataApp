@@ -1,4 +1,5 @@
-﻿using Amazon.S3.Model;
+﻿using Amazon.S3;
+using Amazon.S3.Model;
 using DataApp.Clients;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ namespace DataApp.Service
 {
     public class S3Operations
     {
-        private readonly AwsClients _awsClients;
+        private readonly IAmazonS3 _awsClients;
 
-        public S3Operations(AwsClients awsClients)
+        public S3Operations(IAmazonS3 awsClients)
         {
             _awsClients = awsClients;
         }
@@ -25,17 +26,20 @@ namespace DataApp.Service
                 Key = keyName,
                 InputStream = fileStream
             };
-            await _awsClients.S3Client.PutObjectAsync(request);
+            await _awsClients.PutObjectAsync(request);
         }
 
-        public async Task<GetObjectResponse> DownloadFileAsync(string bucketName, string keyName)
+        public async Task DownloadFileAsync(string bucketName, string keyName, string downloadPath)
         {
             var request = new GetObjectRequest
             {
                 BucketName = bucketName,
                 Key = keyName
             };
-            return await _awsClients.S3Client.GetObjectAsync(request);
+            using GetObjectResponse response = await _awsClients.GetObjectAsync(request);
+            using Stream responseStream = response.ResponseStream;
+            using var fileStream = new FileStream(downloadPath, FileMode.Create, FileAccess.Write);
+            await responseStream.CopyToAsync(fileStream);
         }
     }
 }
