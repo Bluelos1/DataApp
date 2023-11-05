@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "Z7DmkXZwgkOPCV8U3/yP3GvTtjb7iKJBRnGEYDS4vR1e5oiazhhFx0vzFiQ/0sAVZ9R0SMYOjXt+SlXnE3/p0A==",
+  "success": true,
+  "projectFilePath": "/Users/mateuszplacha/Downloads/DataApp-master/DataApp/DataApp.csproj",
+  "expectedPackageFiles": [
+    "/Users/mateuszplacha/.nuget/packages/awssdk.core/3.7.204.10/awssdk.core.3.7.204.10.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/awssdk.dynamodbv2/3.7.203.11/awssdk.dynamodbv2.3.7.203.11.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/awssdk.extensions.netcore.setup/3.7.7/awssdk.extensions.netcore.setup.3.7.7.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/awssdk.s3/3.7.205.21/awssdk.s3.3.7.205.21.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.configuration/7.0.0/microsoft.extensions.configuration.7.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.configuration.abstractions/7.0.0/microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.configuration.binder/7.0.4/microsoft.extensions.configuration.binder.7.0.4.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.configuration.fileextensions/7.0.0/microsoft.extensions.configuration.fileextensions.7.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.configuration.json/7.0.0/microsoft.extensions.configuration.json.7.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/2.0.0/microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.fileproviders.abstractions/7.0.0/microsoft.extensions.fileproviders.abstractions.7.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.fileproviders.physical/7.0.0/microsoft.extensions.fileproviders.physical.7.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.filesystemglobbing/7.0.0/microsoft.extensions.filesystemglobbing.7.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.logging.abstractions/2.0.0/microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
+    "/Users/mateuszplacha/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
